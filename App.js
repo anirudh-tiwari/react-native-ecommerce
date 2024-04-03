@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import Splash from "./src/components/Splash";
+import Login from "./src/components/Login";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -15,6 +15,13 @@ export default function App() {
           }}
           name="Splash"
           component={Splash}
+        />
+         <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Login"
+          component={Login}
         />
       </Stack.Navigator>
     </NavigationContainer>
