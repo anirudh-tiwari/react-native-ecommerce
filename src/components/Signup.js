@@ -4,7 +4,7 @@ import CommonText from "../common/CommonText";
 import CommonButton from "../common/CommonButton";
 import { useNavigation } from "@react-navigation/native";
 
-const Login = () => {
+const Signup = () => {
   const [text, onChangeText] = useState("");
   const [number, onChangeNumber] = useState("");
   navigation = useNavigation();
@@ -22,7 +22,7 @@ const Login = () => {
         style={{
           width: 200,
           height: 180,
-          marginTop: 100,
+          marginTop: 50,
         }}
       />
       <Text
@@ -33,9 +33,21 @@ const Login = () => {
           marginBottom: 24,
         }}
       >
-        Login
+        Create New Account
       </Text>
       <CommonText
+        value={text}
+        onChange={onChangeText}
+        placeholder="Enter Name"
+        logo={require("../../assets/user.png")}
+      />
+      <CommonText
+        value={text}
+        onChange={onChangeText}
+        placeholder="Enter Phone Number"
+        logo={require("../../assets/phone.png")}
+      />
+       <CommonText
         value={text}
         onChange={onChangeText}
         placeholder="Enter Email Id"
@@ -48,7 +60,7 @@ const Login = () => {
         logo={require("../../assets/password.png")}
         type="numeric"
       />
-      <CommonButton text='LOGIN' />
+      <CommonButton text='Signup' />
       <Text
           style={{
             fontSize: 18,
@@ -60,12 +72,12 @@ const Login = () => {
             alignSelf:'center',
             textDecorationLine: 'underline'
           }}
-          onPress={()=>navigation.navigate("Signup")}
+          onPress={()=>navigation.navigate("Login")}
         >
-          Create New Account?
+          Already have account?
         </Text>
     </View>
   );
 };
 
-export default Login;
+export default Signup;
