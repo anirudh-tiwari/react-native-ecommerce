@@ -6,6 +6,8 @@ const CommonText = ({
   placeholder = "",
   type = "default",
   logo,
+  secureTextEntry = false,
+  onBlur,
 }) => {
   return (
     <View style={styles.textStyle}>
@@ -13,9 +15,11 @@ const CommonText = ({
       <TextInput
         // style={styles.input}
         onChangeText={onChange}
+        onBlur={ onBlur }
         value={value}
         placeholder={placeholder}
         keyboardType={type}
+        secureTextEntry={ secureTextEntry }
       />
     </View>
   );
@@ -31,7 +35,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 12,
     width: "75%",
-    marginBottom: 32,
+    marginTop: 24,
     flexDirection: 'row',
     alignItems: 'center',  // Center from vertical position
   },

@@ -6,6 +6,7 @@ const CommonButton = ({
   backgroundColor = "black",
   text = "",
   borderRadius = 8,
+  onPress= () => {},
 }) => {
   return (
     <TouchableOpacity
@@ -17,9 +18,10 @@ const CommonButton = ({
         justifyContent: "center",
         backgroundColor: backgroundColor,
         borderRadius: borderRadius,
+        marginTop: 24,
       }}
     >
-      <Text style={{ color: color }}>{text}</Text>
+      <Text style={{ color: color }} onPress={ onPress }>{text}</Text>
     </TouchableOpacity>
   );
 };
