@@ -92,7 +92,7 @@ const Login = () => {
           alignSelf: "center",
           textDecorationLine: "underline",
         }}
-        onPress={() => navigation.navigate("Signup")}
+        onPress={() => navigation.navigate("Home")}
       >
         Create New Account?
       </Text>

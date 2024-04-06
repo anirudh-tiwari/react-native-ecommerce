@@ -6,7 +6,7 @@ const CommonButton = ({
   backgroundColor = "black",
   text = "",
   borderRadius = 8,
-  onPress= () => {},
+  onPress,
 }) => {
   return (
     <TouchableOpacity
