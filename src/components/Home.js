@@ -1,27 +1,106 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, TouchableOpacity, Image } from "react-native";
+import Header from "../common/Header";
+import { useState } from "react";
+import Main from "../pages/Main";
+import Search from "../pages/Search";
+import Cart from "../pages/Cart";
+import Wishlist from "../pages/Wishlist";
+import Profile from '../pages/Profile'
+
 
 const Home = () => {
+  const [selectedTab, setSelectedTab] = useState(0);
+
   return (
     <View style={{ flex: 1 }}>
-    <View style={{ flexDirection: 'row', position: 'absolute', bottom: 0, height:50, backgroundColor: 'white' }}>
-        <TouchableOpacity style={{width: '20%', alignItems: 'center', justifyContent:'center' }}>
-            <Image source={require('../../assets/home.png')} style={{width: 24, height: 24 }} />
+      {selectedTab == 0 ? (
+        <Main />
+      ) : selectedTab == 1 ? (
+        <Search />
+      ) : selectedTab == 2 ? (
+        <Cart />
+      ) : selectedTab == 3 ? (
+        <Wishlist />
+      ) : (
+        <Profile />
+      )}
+      <View
+        style={{
+          flexDirection: "row",
+          position: "absolute",
+          bottom: 0,
+          height: 50,
+          backgroundColor: "white",
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            width: "20%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => setSelectedTab(0)}
+        >
+          <Image
+            source={require("../../assets/home.png")}
+            style={{ width: 24, height: 24 }}
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={{width: '20%', alignItems: 'center', justifyContent:'center' }}>
-            <Image source={require('../../assets/search.png')} style={{width: 24, height: 24 }} />
+        <TouchableOpacity
+          style={{
+            width: "20%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => setSelectedTab(1)}
+        >
+          <Image
+            source={require("../../assets/search.png")}
+            style={{ width: 24, height: 24 }}
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={{width: '20%', alignItems: 'center', justifyContent:'center' }}>
-            <Image source={require('../../assets/cart.png')} style={{width: 24, height: 24 }} />
+        <TouchableOpacity
+          style={{
+            width: "20%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => setSelectedTab(2)}
+        >
+          <Image
+            source={require("../../assets/cart.png")}
+            style={{ width: 24, height: 24 }}
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={{width: '20%', alignItems: 'center', justifyContent:'center' }}>
-            <Image source={require('../../assets/heart.png')} style={{width: 24, height: 24 }} />
+        <TouchableOpacity
+          style={{
+            width: "20%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => setSelectedTab(3)}
+        >
+          <Image
+            source={require("../../assets/heart.png")}
+            style={{ width: 24, height: 24 }}
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={{width: '20%', alignItems: 'center', justifyContent:'center' }}>
-            <Image source={require('../../assets/user.png')} style={{width: 24, height: 24 }} />
+        <TouchableOpacity
+          style={{
+            width: "20%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => setSelectedTab(4)}
+        >
+          <Image
+            source={require("../../assets/user.png")}
+            style={{ width: 24, height: 24 }}
+          />
         </TouchableOpacity>
+      </View>
     </View>
-    </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
