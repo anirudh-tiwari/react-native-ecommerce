@@ -35,7 +35,7 @@ const Login = () => {
         style={{
           width: 200,
           height: 180,
-          marginTop: 100,
+          marginTop: 80,
         }}
       />
       <Text

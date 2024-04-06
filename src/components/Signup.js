@@ -22,7 +22,7 @@ const Signup = () => {
         style={{
           width: 200,
           height: 180,
-          marginTop: 50,
+          marginTop: 30,
         }}
       />
       <Text

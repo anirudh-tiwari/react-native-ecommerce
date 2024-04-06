@@ -1,7 +1,8 @@
-import { View, Image, FlatList, TouchableOpacity, Text } from "react-native";
+import { View, Image, FlatList, TouchableOpacity, Text, ScrollView } from "react-native";
 import Header from "../common/Header";
 import { useEffect, useState } from "react";
 import { products } from "./products";
+import ProductItem from '../common/ProductItem';
 
 const Main = () => {
   const [categoryList, setCategoryList] = useState([]);
@@ -27,7 +28,7 @@ const Main = () => {
   }, []);
 
   return (
-    <View>
+    <ScrollView>
       <Header />
       <Image
         source={require("../../assets/banner.jpeg")}
@@ -38,7 +39,7 @@ const Main = () => {
           marginTop: 20,
         }}
       />
-      <View>
+      <View style={{ marginTop: 20 }}>
         <FlatList
           data={categoryList}
           horizontal
@@ -65,7 +66,162 @@ const Main = () => {
           }}
         />
       </View>
-    </View>
+      <Text
+        style={{
+          marginTop: 20,
+          fontSize: 18,
+          marginLeft: 20,
+          fontWeight: "600",
+          color: "#000",
+        }}
+      >
+        New T-Shirts
+      </Text>
+      <View style={{ marginTop: 15 }}>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={tshirtList}
+          renderItem={({ item, index }) => {
+            return (
+              <ProductItem
+                item={item}
+                // onAddWishlist={(x) => {
+                //   dispatch(addToWishlist(x));
+                // }}
+                // onAddToCart={(x) => {
+                //   dispatch(addItemToCart(item));
+                // }}
+              />
+            );
+          }}
+        />
+      </View>
+      <Text
+        style={{
+          marginTop: 20,
+          fontSize: 18,
+          marginLeft: 20,
+          fontWeight: "600",
+          color: "#000",
+        }}
+      >
+        New Trousers
+      </Text>
+      <View style={{ marginTop: 15 }}>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={trouserList}
+          renderItem={({ item, index }) => {
+            return (
+              <ProductItem
+                item={item}
+                // onAddWishlist={(x) => {
+                //   dispatch(addToWishlist(x));
+                // }}
+                // onAddToCart={(x) => {
+                //   dispatch(addItemToCart(item));
+                // }}
+              />
+            );
+          }}
+        />
+      </View>
+      <Text
+        style={{
+          marginTop: 20,
+          fontSize: 18,
+          marginLeft: 20,
+          fontWeight: "600",
+          color: "#000",
+        }}
+      >
+        New Jeans
+      </Text>
+      <View style={{ marginTop: 15 }}>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={jeansList}
+          renderItem={({ item, index }) => {
+            return (
+              <ProductItem
+                item={item}
+                // onAddWishlist={(x) => {
+                //   dispatch(addToWishlist(x));
+                // }}
+                // onAddToCart={(x) => {
+                //   dispatch(addItemToCart(item));
+                // }}
+              />
+            );
+          }}
+        />
+      </View>
+      <Text
+        style={{
+          marginTop: 20,
+          fontSize: 18,
+          marginLeft: 20,
+          fontWeight: "600",
+          color: "#000",
+        }}
+      >
+        New Slippers
+      </Text>
+      <View style={{ marginTop: 15 }}>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={slipperList}
+          renderItem={({ item, index }) => {
+            return (
+              <ProductItem
+                item={item}
+                // onAddWishlist={(x) => {
+                //   dispatch(addToWishlist(x));
+                // }}
+                // onAddToCart={(x) => {
+                //   dispatch(addItemToCart(item));
+                // }}
+              />
+            );
+          }}
+        />
+      </View>
+      <Text
+        style={{
+          marginTop: 20,
+          fontSize: 18,
+          marginLeft: 20,
+          fontWeight: "600",
+          color: "#000",
+        }}
+      >
+        New Shoes
+      </Text>
+      <View style={{ marginTop: 15, marginBottom: 100 }}>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={shoesList}
+          renderItem={({ item, index }) => {
+            return (
+              <ProductItem
+                item={item}
+                // onAddWishlist={(x) => {
+                //   dispatch(addToWishlist(x));
+                // }}
+                // onAddToCart={(x) => {
+                //   dispatch(addItemToCart(x));
+                // }}
+              />
+            );
+          }}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
