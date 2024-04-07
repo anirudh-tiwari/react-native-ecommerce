@@ -1,13 +1,24 @@
 import { View, Image, Text } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommonText from "../common/CommonText";
 import CommonButton from "../common/CommonButton";
 import { useNavigation } from "@react-navigation/native";
+import { MenuDispatchers, MenuSelectors } from '../store/features/menu';
 
 const Signup = () => {
   const [text, onChangeText] = useState("");
   const [number, onChangeNumber] = useState("");
+	const { activeMenu, activeMenu2 } = MenuSelectors();
   navigation = useNavigation();
+
+	const { setActive, setActive2 } = MenuDispatchers();
+
+  useEffect(() => {
+    setTimeout(()=>{
+      setActive('Anirudh');
+      setActive2('Anirudh 2')
+    },2000)
+	}, []);
 
   return (
     <View
@@ -33,7 +44,7 @@ const Signup = () => {
           marginBottom: 24,
         }}
       >
-        Create New Account
+        Create New Account { activeMenu} { activeMenu2 }
       </Text>
       <CommonText
         value={text}
