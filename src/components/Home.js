@@ -6,8 +6,10 @@ import Search from "../pages/Search";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import Profile from "../pages/Profile";
+import { CartSelectors } from "../store/features/cart";
 
 const Home = () => {
+  const { cartList } = CartSelectors();
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
@@ -76,23 +78,23 @@ const Home = () => {
               style={{ width: 24, height: 24, tintColor: "white" }}
             />
           </TouchableOpacity>
-          <Text
-            style={{
-              position: "absolute",
-              backgroundColor: "red",
-              height: 20,
-              width: 20,
-              right: 20,
-              top: 0,
-              borderRadius: 50,
-              flex: 1,
-              alignItems:'center',
-              alignContent: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            1
-          </Text>
+          {cartList.length ? (
+            <View
+              style={{
+                position: "absolute",
+                backgroundColor: "red",
+                height: 24,
+                width: 24,
+                right: 6,
+                top: 0,
+                borderRadius: 50,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>{cartList.length}</Text>
+            </View>
+          ) : null}
         </View>
         <TouchableOpacity
           style={{

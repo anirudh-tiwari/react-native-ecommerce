@@ -3,10 +3,8 @@ import Header from "../common/Header";
 import { useEffect, useState } from "react";
 import { products } from "./products";
 import ProductItem from '../common/ProductItem';
-import { CartSelectors } from "../store/features/cart";
 
 const Main = () => {
-  const { cartList } = CartSelectors();
   const [categoryList, setCategoryList] = useState([]);
   const [tshirtList, setTshirtList] = useState([]);
   const [shoesList, setShoesLits] = useState([]);
@@ -61,7 +59,7 @@ const Main = () => {
                 <Text
                   style={{ color: "#000", marginLeft: 10, marginRight: 10 }}
                 >
-                  {item} {cartList?.length}1
+                  {item}
                 </Text>
               </TouchableOpacity>
             );
