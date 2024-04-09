@@ -1,6 +1,8 @@
 import { View, TouchableOpacity, Text, Image } from "react-native";
+import { CartDispatchers } from "../store/features/cart";
 
 const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
+  const { setAddtoCart } = CartDispatchers();
   return (
     <TouchableOpacity
       style={{
@@ -64,7 +66,7 @@ const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
               marginRight: 15,
             }}
             onPress={() => {
-              //   onAddToCart(item);
+              setAddtoCart(item);
             }}
           >
             <Text style={{ color: "#000" }}>Add to Cart</Text>

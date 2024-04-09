@@ -44,7 +44,7 @@ const Signup = () => {
           marginBottom: 24,
         }}
       >
-        Create New Account { activeMenu} { activeMenu2 }
+        Create New Account
       </Text>
       <CommonText
         value={text}
