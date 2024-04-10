@@ -7,9 +7,11 @@ import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import Profile from "../pages/Profile";
 import { CartSelectors } from "../store/features/cart";
+import { WhishListSelectors } from "../store/features/whishlist";
 
 const Home = () => {
   const { cartList } = CartSelectors();
+  const { whishList } = WhishListSelectors();
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
@@ -96,19 +98,41 @@ const Home = () => {
             </View>
           ) : null}
         </View>
-        <TouchableOpacity
-          style={{
-            width: "20%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onPress={() => setSelectedTab(3)}
-        >
-          <Image
-            source={require("../../assets/heart.png")}
-            style={{ width: 24, height: 24 }}
-          />
-        </TouchableOpacity>
+        <View style={{ width: "20%" }}>
+          <TouchableOpacity
+            style={{
+              width: 50,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 50,
+              height: 50,
+              alignSelf: "center",
+            }}
+            onPress={() => setSelectedTab(3)}
+          >
+            <Image
+              source={require("../../assets/heart.png")}
+              style={{ width: 24, height: 24 }}
+            />
+          </TouchableOpacity>
+          {whishList.length ? (
+            <View
+              style={{
+                position: "absolute",
+                backgroundColor: "red",
+                height: 24,
+                width: 24,
+                right: 10,
+                top: 0,
+                borderRadius: 50,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>{whishList.length}</Text>
+            </View>
+          ) : null}
+        </View>
         <TouchableOpacity
           style={{
             width: "20%",

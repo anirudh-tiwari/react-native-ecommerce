@@ -19,15 +19,17 @@ export const CartSelectors = () => {
 
 export const CartDispatchers = () => {
   const { state, setStateProp, reset } = GetDispatchers(feature);
-console.log('anistate',state);
 
   const addtoCart = (body) => {
-    const newList = [...state.cartList, body];
-    setStateProp("cartList", newList);
+    const cartIds = state.cartList.map((data) => data.image);
+    if (!cartIds.includes(body.image)) {
+      const newList = [...state.cartList, body];
+      setStateProp("cartList", newList);
+    }
   };
 
   const removeToCart = (value) => {
-    const newList = state.cartList.filter(( item )=> item.id !== value )
+    const newList = state.cartList.filter((item) => item.id !== value);
     setStateProp("cartList", newList);
   };
 

@@ -1,8 +1,11 @@
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import { CartDispatchers } from "../store/features/cart";
+import { WhishListDispatchers } from "../store/features/whishlist";
 
 const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
   const { setAddtoCart } = CartDispatchers();
+  const { setWhishList } = WhishListDispatchers();
+
   return (
     <TouchableOpacity
       style={{
@@ -86,7 +89,7 @@ const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
             right: 10,
           }}
           onPress={() => {
-            // onAddWishlist(item);
+            setWhishList(item);
           }}
         >
           <Image
