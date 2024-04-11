@@ -5,6 +5,8 @@ import Splash from "../components/Splash";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import Home from "../components/Home";
+import Cart from '../pages/Cart';
+
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
@@ -39,6 +41,13 @@ const AppNavigator = () => {
       }}
       name="Home"
       component={Home}
+    />
+    <Stack.Screen
+      options={{
+        headerShown: false,
+      }}
+      name="Cart"
+      component={Cart}
     />
   </Stack.Navigator>
 </NavigationContainer>

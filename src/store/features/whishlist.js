@@ -29,7 +29,7 @@ export const WhishListDispatchers = () => {
   };
 
   const removewhishList = (value) => {
-    const newList = state.whishList.filter((item) => item.id !== value);
+    const newList = state.whishList.filter((item) => item.image !== value);
     setStateProp("whishList", newList);
   };
 

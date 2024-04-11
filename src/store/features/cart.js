@@ -29,7 +29,7 @@ export const CartDispatchers = () => {
   };
 
   const removeToCart = (value) => {
-    const newList = state.cartList.filter((item) => item.id !== value);
+    const newList = state.cartList.filter((item) => item.image !== value);
     setStateProp("cartList", newList);
   };
 

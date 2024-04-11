@@ -2,19 +2,31 @@ import { View, TouchableOpacity, Text, Image } from "react-native";
 import { CartDispatchers } from "../store/features/cart";
 import { WhishListDispatchers } from "../store/features/whishlist";
 
-const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
-  const { setAddtoCart } = CartDispatchers();
-  const { setWhishList } = WhishListDispatchers();
+const ProductItem = ({
+  item,
+  width = 200,
+  marginLeft = 10,
+  marginTop = 0,
+  hasCart = false,
+  hasWhishList = false
+}) => {
+  const { setAddtoCart, setRemovetoCart } = CartDispatchers();
+  const { setWhishList, setRemoveWhishList } = WhishListDispatchers();
+ let heartIcon = require( "../../assets/heart.png" );
+ if( hasWhishList ){
+  heartIcon = require( "../../assets/heart_fill.png" );
+ }
 
   return (
     <TouchableOpacity
       style={{
         borderRadius: 20,
         elevation: 5, // ADD BOX-SHADOW
-        width: 200,
+        width: width,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft: 10,
+        marginLeft: marginLeft,
+        marginTop: marginTop,
         backgroundColor: "#fff",
         marginBottom: 10,
       }}
@@ -69,10 +81,16 @@ const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
               marginRight: 15,
             }}
             onPress={() => {
-              setAddtoCart(item);
+              if (hasCart) {
+                setRemovetoCart(item.image);
+              } else {
+                setAddtoCart(item);
+              }
             }}
           >
-            <Text style={{ color: "#000" }}>Add to Cart</Text>
+            <Text style={{ color: "#000" }}>
+              {hasCart ? "Remove Item" : "Add to Cart"}
+            </Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity
@@ -89,12 +107,16 @@ const ProductItem = ({ item, onAddToCart, onAddWishlist }) => {
             right: 10,
           }}
           onPress={() => {
-            setWhishList(item);
+            if (hasWhishList) {
+              setRemoveWhishList(item.image);
+            } else {
+              setWhishList(item);
+            }
           }}
         >
           <Image
-            source={require("../../assets/heart.png")}
-            style={{ width: 24, height: 24 }}
+            source={ heartIcon }
+            style={{ width: 24, height: 24, tintColor: hasWhishList ? 'red' : '#353030' }}
           />
         </TouchableOpacity>
       </View>
